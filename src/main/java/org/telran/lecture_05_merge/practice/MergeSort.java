@@ -20,8 +20,24 @@ public class MergeSort {
     }
 
     private static int[] merge(int[] left, int[] right) {
+        int indexLeft = 0, indexRight = 0, merge = 0;
         int[] result = new int[left.length + right.length];
-        // TODO: добавьте реализацию методы
+        while (indexLeft < left.length && indexRight < right.length) {
+            if (left[indexLeft] <= right[indexRight]) {
+                result[merge++] = left[indexLeft++];
+            } else {
+                result[merge++] = right[indexRight++];
+            }
+        }
+
+        while (indexLeft < left.length) {
+            result[merge++] = left[indexLeft++];
+        }
+
+        while (indexRight < right.length) {
+            result[merge++] = right[indexRight++];
+        }
+
         return result;
     }
 
